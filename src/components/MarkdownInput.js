@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { TextField, Button } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import { Divider } from "@material-ui/core";
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setConvertDisabled, setDownloadDisabled, setMarkdownData, handleConvertPressed, downloadDisabled }) => {
+const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setConvertDisabled, setDownloadDisabled, setMarkdownData, handleConvertPressed }) => {
     const classes = useStyles();
 
     const handleChangeMarkdownData = (event) => {
@@ -51,8 +51,8 @@ const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setC
                 style={{ width: "1500px" }}
                 label="Markdown Data"
                 multiline
-                minRows={34}
-                maxRows={34}
+                minRows={23}
+                maxRows={23}
             />
         </div>
         <div style={{ paddingTop: "10px", display: "flex", justifyContent: "right" }}>

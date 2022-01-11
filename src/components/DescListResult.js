@@ -86,11 +86,11 @@ const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => 
                     fullWidth
                     value={value}
                     multiline
-                    minRows={34}
-                    maxRows={34}
+                    minRows={23}
+                    maxRows={23}
                 />
                 :
-                <div style={{ height: "725px", overflowY: "auto" }}>
+                <div style={{ height: "498px", overflowY: "auto" }}>
                     <div dangerouslySetInnerHTML={{ __html: value }}></div>
                 </div>
             }

@@ -1,12 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from '@material-ui/core/styles';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from "@material-ui/icons/Delete";
-import { IconButton } from '@material-ui/core';
-import EditElement from '../EditElement';
-import { FormContext } from '../../FormContext';
-import deleteKey from '../utils/deleteKey';
 import { InputAdornment } from '@material-ui/core';
 import getUnit from '../utils/getUnit';
 
@@ -22,12 +16,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const NumberType = ({ dataInputItems, setDataInputItems, withinArray, path, pathSchema, defaultValue, field_required, field_index, edit, field_id, field_label, field_description, field_enumerate }) => {
-    //const [descriptionText, setDescriptionText] = useState(field_description);
-    const [openDialog, setOpenDialog] = useState(false);
-    const { convertedSchema } = useContext(FormContext);
+const NumberType = ({ dataInputItems, setDataInputItems, withinArray, pathSchema, defaultValue, field_required, field_index, field_id, field_label, field_description, field_enumerate }) => {
+
     const [inputValue, setInputValue] = useState(defaultValue === undefined ? "" : defaultValue)
-    //const [required, setRequired] = useState(false)
+
     const classes = useStyles();
 
     let unit = getUnit(field_label)
@@ -39,20 +31,14 @@ const NumberType = ({ dataInputItems, setDataInputItems, withinArray, path, path
         required = true;
     };
 
+    /*
     var enumerated
     if (field_enumerate === undefined) {
         enumerated = false;
     } else {
         enumerated = true;
     }
-
-    // construct UI schema
-    let UISchema = {
-        "fieldId": field_id,
-        "title": field_label,
-        "description": field_description,
-        "type": "number"
-    }
+    */
 
     // handle input on change for number a.k.a signed float
     const handleInputOnChange = (event) => {
