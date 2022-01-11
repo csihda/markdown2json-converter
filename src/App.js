@@ -9,8 +9,8 @@ export default function App() {
   return (
     <div className="the_app">
       <Switch>
-        <Redirect exact from="/" to="/makrdown2json-converter" />
-        <Route exact path="/makrdown2json-converter" component={Converter}></Route>
+        <Redirect exact from="/" to="/markdown2json-converter" />
+        <Route exact path="/markdown2json-converter" component={Converter}></Route>
       </Switch>
     </div>
   );
