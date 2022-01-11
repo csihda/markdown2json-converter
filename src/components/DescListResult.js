@@ -28,9 +28,9 @@ const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => 
             setValue(descListData);
         }
         if (convertDisabled) {
-            setSelectedDisplay("Source")
-            setDisplayOptionDisabled(true)
-            setValue("")
+            setSelectedDisplay("Source");
+            setDisplayOptionDisabled(true);
+            setValue("");
         }
     }, [descListData, convertDisabled])
 
