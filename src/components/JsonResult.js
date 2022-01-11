@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const JsonResult = ({ schema, convertDisabled }) => {
+const JsonResult = ({ downloadDisabled, schema, convertDisabled }) => {
     const classes = useStyles();
     const [selectedDisplay, setSelectedDisplay] = useState("JSON Schema");
     const [convertedSchema, setConvertedSchema] = useState();
@@ -116,7 +116,7 @@ const JsonResult = ({ schema, convertDisabled }) => {
                     <div style={{ paddingTop: "10px", display: "flex", justifyContent: "right" }}>
                         <Button
                             onClick={(event) => handleDownloadJsonSchema(event)}
-                            disabled={convertDisabled}
+                            disabled={downloadDisabled}
                             variant="outlined"
                         >
                             Download Schema

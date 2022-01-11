@@ -19,9 +19,11 @@ const Converter = () => {
   const [convertDisabled, setConvertDisabled] = useState(true);
   const [title, setTitle] = useState("");
   const [openDialog, setOpenDialog] = useState(false);
+  const [downloadDisabled, setDownloadDisabled] = useState(true);
 
   const handleConvertPressed = () => {
-    if ((title === "") | (title === undefined)) {
+    if ((title === undefined) | (title === "")) {
+      setTitle(undefined);
       setOpenDialog(true);
     } else {
       handleConvertPressedContinued();
@@ -36,7 +38,7 @@ const Converter = () => {
     let markdownArrayRep = JSON.stringify(markdownData).replaceAll('"', "");
     markdownArrayRep = markdownArrayRep.split(/\r?\\n/);
 
-    // create schema
+    // create json schema
     let updatedSchema = { ...schema };
     updatedSchema["$schema"] = "http://json-schema.org/draft-04/schema#";
     updatedSchema["id"] = "TO DO: need to create automatic id generation";
@@ -125,6 +127,9 @@ const Converter = () => {
     descriptionList += "</dl>";
 
     setDescList(descriptionList);
+
+    // enable download
+    setDownloadDisabled(false);
   };
 
   return (
@@ -136,13 +141,19 @@ const Converter = () => {
           handleConvertPressed={handleConvertPressed}
           handleConvertPressedContinued={handleConvertPressedContinued}
           setConvertDisabled={setConvertDisabled}
+          setDownloadDisabled={setDownloadDisabled}
           convertDisabled={convertDisabled}
           setSchema={setSchema}
           setDescList={setDescList}
           setTitle={setTitle}
         />
-        <JsonResult convertDisabled={convertDisabled} schema={schema} />
+        <JsonResult
+          downloadDisabled={downloadDisabled}
+          convertDisabled={convertDisabled}
+          schema={schema}
+        />
         <DescListResult
+          downloadDisabled={downloadDisabled}
           convertDisabled={convertDisabled}
           descListData={descList}
         />

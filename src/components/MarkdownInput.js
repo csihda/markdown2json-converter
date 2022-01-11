@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setConvertDisabled, setMarkdownData, handleConvertPressed }) => {
+const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setConvertDisabled, setDownloadDisabled, setMarkdownData, handleConvertPressed, downloadDisabled }) => {
     const classes = useStyles();
 
     const handleChangeMarkdownData = (event) => {
@@ -25,13 +25,14 @@ const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setC
             setMarkdownData(value);
         } else {
             setConvertDisabled(true);
+            setDownloadDisabled(true);
             setSchema();
             setDescList();
         }
     }
 
     const handleOnBlurMarkdownTitle = (event) => {
-        setTitle(event.target.value)
+        setTitle(event.target.value.trim())
     }
 
     return (<div style={{ padding: "10px", width: "33%" }}>

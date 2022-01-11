@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import { TextField, Button } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import CryptoJS from "crypto-js";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const DescListResult = ({ descListData, convertDisabled }) => {
+const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => {
     const classes = useStyles();
     const [selectedDisplay, setSelectedDisplay] = useState("Source")
     const [value, setValue] = useState(descListData);
@@ -38,6 +39,20 @@ const DescListResult = ({ descListData, convertDisabled }) => {
     const handleSelectDisplay = (event) => {
         setSelectedDisplay(event.target.value)
     }
+
+    const handleDownloadTPLFile = () => {
+        let content = { ...descListData };
+
+        // calculate hash for the content
+        // calculate hash using CryptoJS
+        let sha256_hash = CryptoJS.SHA256(JSON.stringify(content));
+
+        let a = document.createElement("a");
+        let file = new Blob([value]);
+        a.href = URL.createObjectURL(file);
+        a.download = `tplfile-${sha256_hash}.tpl`;
+        a.click();
+    };
 
     return (<div style={{ padding: "10px", width: "33%" }}>
         <div style={{ textAlign: "center" }}>
@@ -82,6 +97,8 @@ const DescListResult = ({ descListData, convertDisabled }) => {
         </div>
         <div style={{ paddingTop: "10px", display: "flex", justifyContent: "right" }}>
             <Button
+                disabled={downloadDisabled}
+                onClick={() => handleDownloadTPLFile()}
                 variant="outlined"
             >
                 Download .tpl file
