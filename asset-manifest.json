@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/makrdown2json-converter/static/css/main.09fbb06a.css",
+    "main.js": "/makrdown2json-converter/static/js/main.568c8583.js",
+    "index.html": "/makrdown2json-converter/index.html",
+    "main.09fbb06a.css.map": "/makrdown2json-converter/static/css/main.09fbb06a.css.map",
+    "main.568c8583.js.map": "/makrdown2json-converter/static/js/main.568c8583.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09fbb06a.css",
+    "static/js/main.568c8583.js"
+  ]
+}
