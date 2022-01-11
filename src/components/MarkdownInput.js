@@ -3,6 +3,7 @@ import { TextField, Button } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import { Divider } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import MarkdownLogo from "../assets/markdown-logo.png";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,8 +37,12 @@ const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setC
     }
 
     return (<div style={{ padding: "10px", width: "33%" }}>
-        <div style={{ textAlign: "center" }}>
-            <Typography className={classes.heading}>Markdown Input</Typography>
+
+        <div style={{ display: "flex", textAlign: "center" }}>
+            <img src={MarkdownLogo} alt="markdown-logo" width="40" height="30" />
+            <div style={{ paddingLeft: "10px", textAlign: "center" }}>
+                <Typography className={classes.heading}>Markdown Input</Typography>
+            </div>
         </div>
         <Divider />
         <div>

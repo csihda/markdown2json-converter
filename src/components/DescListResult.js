@@ -4,6 +4,7 @@ import { TextField, Button } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import CryptoJS from "crypto-js";
+import DescListLogo from "../assets/desclist-logo.png"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -55,8 +56,12 @@ const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => 
     };
 
     return (<div style={{ padding: "10px", width: "33%" }}>
-        <div style={{ textAlign: "center" }}>
-            <Typography className={classes.heading}>HTML Description List</Typography>
+
+        <div style={{ display: "flex", textAlign: "center" }}>
+            <img src={DescListLogo} alt="desclist-logo" width="40" height="30" />
+            <div style={{ paddingLeft: "10px", textAlign: "center" }}>
+                <Typography className={classes.heading}>HTML Description List</Typography>
+            </div>
         </div>
         <Divider />
         <div>

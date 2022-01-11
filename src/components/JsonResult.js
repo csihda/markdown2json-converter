@@ -7,6 +7,7 @@ import FormRenderer from './FormRenderer';
 import object2array from './utils/object2array'
 import { FormContext } from "../FormContext";
 import CryptoJS from "crypto-js";
+import JsonSchemaLogo from "../assets/json-schema-logo.png"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -70,8 +71,11 @@ const JsonResult = ({ downloadDisabled, schema, convertDisabled }) => {
                     convertedSchema,
                 }}>
                 <div style={{ padding: "10px", width: "33%" }}>
-                    <div style={{ textAlign: "center" }}>
-                        <Typography className={classes.heading}>JSON Schema</Typography>
+                    <div style={{ display: "flex", textAlign: "center" }}>
+                        <img src={JsonSchemaLogo} alt="json-schema-logo" width="30" height="30" />
+                        <div style={{ paddingLeft: "10px", textAlign: "center" }}>
+                            <Typography className={classes.heading}>JSON Schema</Typography>
+                        </div>
                     </div>
                     <Divider />
                     <div>
