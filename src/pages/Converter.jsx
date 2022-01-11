@@ -158,6 +158,10 @@ const Converter = () => {
           descListData={descList}
         />
       </div>
+      <div style={{ padding: "5px" }}>
+        Markdown to json schema and eLabFTW description list converter
+        v1.0.0-alpha
+      </div>
       <Dialog
         open={openDialog}
         aria-labelledby="alert-dialog-title"
