@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles.css";
+import { Route, Switch, Redirect } from "react-router-dom";
+import Converter from "./pages/Converter";
 
-function App() {
+export default function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="the_app">
+      <Switch>
+        <Redirect exact from="/" to="/makrdown2json-converter" />
+        <Route exact path="/makrdown2json-converter" component={Converter}></Route>
+      </Switch>
     </div>
   );
-}
-
-export default App;
+};
