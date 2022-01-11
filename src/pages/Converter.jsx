@@ -12,6 +12,16 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 
+// remove keys that have value null or ""
+const removeEmpty = (obj) => {
+  Object.entries(obj).forEach(
+    ([key, val]) =>
+      (val && typeof val === "object" && removeEmpty(val)) ||
+      ((val === null || val === "") && delete obj[key])
+  );
+  return obj;
+};
+
 const Converter = () => {
   const [markdownData, setMarkdownData] = useState();
   const [schema, setSchema] = useState();
@@ -115,8 +125,8 @@ const Converter = () => {
       updatedSchema["required"] = required;
     }
 
-    console.log(updatedSchema);
-    setSchema(updatedSchema);
+    //console.log(updatedSchema);
+    setSchema(removeEmpty(updatedSchema));
 
     // here convert the valid json schema to HTML description list
     let descriptionList = "<dl>\n";
