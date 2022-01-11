@@ -1,6 +1,6 @@
 {
-  "homepage": "http://csihda.github.io/makrdown2json-converter",
-  "name": "makrdown2json-converter",
+  "homepage": "http://csihda.github.io/markdown2json-converter",
+  "name": "markdown2json-converter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
