@@ -4,7 +4,9 @@ import { TextField, Button } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import CryptoJS from "crypto-js";
-import DescListLogo from "../assets/desclist-logo.png"
+import DescListLogo from "../assets/desclist-logo.png";
+import CopyIcon from "@material-ui/icons/FileCopy";
+import DownloadIcon from "@material-ui/icons/CloudDownload";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -55,6 +57,13 @@ const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => 
         a.click();
     };
 
+    const copyToClipboardOnClick = () => {
+
+        navigator.clipboard.writeText(value);
+
+        alert("Copied the text to clipboard: \n" + value);
+    }
+
     return (<div style={{ padding: "10px", width: "33%" }}>
 
         <div style={{ display: "flex", textAlign: "center" }}>
@@ -101,12 +110,13 @@ const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => 
             }
         </div>
         <div style={{ paddingTop: "10px", display: "flex", justifyContent: "right" }}>
+            <Button variant="outlined" style={{ marginRight: "5px" }} onClick={() => copyToClipboardOnClick()}><CopyIcon style={{ marginRight: "5px" }} /> Copy</Button>
             <Button
                 disabled={downloadDisabled}
                 onClick={() => handleDownloadTPLFile()}
                 variant="outlined"
             >
-                Download .tpl file
+                <DownloadIcon style={{ marginRight: "5px" }} />  Download .tpl file
             </Button>
         </div>
     </div>);

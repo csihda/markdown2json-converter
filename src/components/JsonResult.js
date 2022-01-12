@@ -7,7 +7,9 @@ import FormRenderer from './FormRenderer';
 import object2array from './utils/object2array'
 import { FormContext } from "../FormContext";
 import CryptoJS from "crypto-js";
-import JsonSchemaLogo from "../assets/json-schema-logo.png"
+import JsonSchemaLogo from "../assets/json-schema-logo.png";
+import CopyIcon from "@material-ui/icons/FileCopy";
+import DownloadIcon from "@material-ui/icons/CloudDownload";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -64,6 +66,13 @@ const JsonResult = ({ downloadDisabled, schema, convertDisabled }) => {
         a.click();
     };
 
+    const copyToClipboardOnClick = () => {
+
+        navigator.clipboard.writeText(value);
+
+        alert("Copied the text to clipboard: \n" + value);
+    }
+
     return (
         <>
             <FormContext.Provider
@@ -100,6 +109,7 @@ const JsonResult = ({ downloadDisabled, schema, convertDisabled }) => {
                         {selectedDisplay === "JSON Schema" ?
                             <TextField
                                 disabled
+                                id="json-schema-text"
                                 margin="normal"
                                 variant="filled"
                                 fullWidth
@@ -118,12 +128,13 @@ const JsonResult = ({ downloadDisabled, schema, convertDisabled }) => {
 
                     </div>
                     <div style={{ paddingTop: "10px", display: "flex", justifyContent: "right" }}>
+                        <Button style={{ marginRight: "5px" }} variant="outlined" disabled={downloadDisabled} onClick={() => copyToClipboardOnClick()} ><CopyIcon style={{ marginRight: "5px" }} />Copy</Button>
                         <Button
                             onClick={(event) => handleDownloadJsonSchema(event)}
                             disabled={downloadDisabled}
                             variant="outlined"
                         >
-                            Download Schema
+                            <DownloadIcon style={{ marginRight: "5px" }} /> Download Schema
                         </Button>
                     </div>
                 </div>
