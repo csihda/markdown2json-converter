@@ -10,6 +10,8 @@ import CryptoJS from "crypto-js";
 import JsonSchemaLogo from "../assets/json-schema-logo.png";
 import CopyIcon from "@material-ui/icons/FileCopy";
 import DownloadIcon from "@material-ui/icons/CloudDownload";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -70,7 +72,16 @@ const JsonResult = ({ downloadDisabled, schema, convertDisabled }) => {
 
         navigator.clipboard.writeText(value);
 
-        alert("Copied the text to clipboard: \n" + value);
+        //alert("Copied the text to clipboard: \n" + value);
+        toast.success('Text copied to clipboard', {
+            position: "bottom-left",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+        });
     }
 
     return (
@@ -139,6 +150,7 @@ const JsonResult = ({ downloadDisabled, schema, convertDisabled }) => {
                     </div>
                 </div>
             </FormContext.Provider>
+            <ToastContainer toastStyle={{ backgroundColor: "#4C4C4C", color: "white" }} />
         </>);
 }
 

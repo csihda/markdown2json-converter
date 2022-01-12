@@ -7,6 +7,8 @@ import CryptoJS from "crypto-js";
 import DescListLogo from "../assets/desclist-logo.png";
 import CopyIcon from "@material-ui/icons/FileCopy";
 import DownloadIcon from "@material-ui/icons/CloudDownload";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -61,7 +63,16 @@ const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => 
 
         navigator.clipboard.writeText(value);
 
-        alert("Copied the text to clipboard: \n" + value);
+        //alert("Copied the text to clipboard: \n" + value);
+        toast.success('Text copied to clipboard', {
+            position: "bottom-left",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+        });
     }
 
     return (<div style={{ padding: "10px", width: "33%" }}>
@@ -119,6 +130,7 @@ const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => 
                 <DownloadIcon style={{ marginRight: "5px" }} />  Download .tpl file
             </Button>
         </div>
+        <ToastContainer toastStyle={{ backgroundColor: "#4C4C4C", color: "white" }} />
     </div>);
 }
 
