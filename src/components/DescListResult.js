@@ -110,7 +110,7 @@ const DescListResult = ({ downloadDisabled, descListData, convertDisabled }) => 
             }
         </div>
         <div style={{ paddingTop: "10px", display: "flex", justifyContent: "right" }}>
-            <Button variant="outlined" style={{ marginRight: "5px" }} onClick={() => copyToClipboardOnClick()}><CopyIcon style={{ marginRight: "5px" }} /> Copy</Button>
+            <Button disabled={downloadDisabled} variant="outlined" style={{ marginRight: "5px" }} onClick={() => copyToClipboardOnClick()}><CopyIcon style={{ marginRight: "5px" }} /> Copy</Button>
             <Button
                 disabled={downloadDisabled}
                 onClick={() => handleDownloadTPLFile()}
