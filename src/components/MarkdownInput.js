@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.typography.pxToRem(25),
         fontWeight: theme.typography.fontWeightRegular,
     },
+    input: {
+        fontSize: "11px",
+        fontFamily: "monospace"
+    }
 }));
 
 const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setConvertDisabled, setDownloadDisabled, setMarkdownData, handleConvertPressed }) => {
@@ -53,14 +57,15 @@ const MarkdownInput = ({ setTitle, setDescList, setSchema, convertDisabled, setC
                 onChange={(event) => handleChangeMarkdownData(event)}
                 margin="normal"
                 variant="filled"
-                style={{ width: "1500px" }}
+                style={{ width: "3000px" }}
                 label="Markdown Data"
+                InputProps={{ className: classes.input }}
                 multiline
-                minRows={23}
-                maxRows={23}
+                minRows={32}
+                maxRows={32}
             />
         </div>
-        <div style={{ paddingTop: "10px", display: "flex", justifyContent: "right" }}>
+        <div style={{ paddingTop: "9px", display: "flex", justifyContent: "right" }}>
             <Button
                 disabled={convertDisabled}
                 variant="contained"
