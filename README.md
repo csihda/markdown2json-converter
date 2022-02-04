@@ -1,6 +1,6 @@
 # markdown2json-converter
 
-A simple web GUI to convert markdown table to json schema and description list (.tpl). Live playground: https://csihda.github.io/markdown2json-converter/.
+A simple web GUI to convert markdown table to json schema and description list (.tpl). Available at: https://csihda.github.io/markdown2json-converter/.
 
 ## Starting the web GUI
 
@@ -12,7 +12,7 @@ npm start
 
 ## Usage
 
-Insert the valid markdown table and press convert.
+Insert the valid markdown table and click convert.
 
 ## Accepted mardown table format
 
