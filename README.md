@@ -3,14 +3,12 @@
 A simple web GUI to convert markdown table to json schema (draft 4 specification version) and description list (.tpl). Available at: https://csihda.github.io/markdown2json-converter/.
 
 ## Starting the web GUI
-
-Run:
-
-```
--`git clone https://github.com/csihda/markdown2json-converter.git`
--`npm install`
--`npm start`
-```
+First clone the repo:
+- `git clone https://github.com/csihda/markdown2json-converter.git`
+Then install the dependencies:
+- `npm install`
+- And finally run the GUI:
+- `npm start`
 
 ## Usage
 
