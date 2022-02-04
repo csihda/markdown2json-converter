@@ -7,7 +7,9 @@ A simple web GUI to convert markdown table to json schema (draft 4 specification
 Run:
 
 ```
-npm start
+-`git clone https://github.com/csihda/markdown2json-converter.git`
+-`npm install`
+-`npm start`
 ```
 
 ## Usage
