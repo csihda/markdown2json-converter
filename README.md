@@ -18,7 +18,7 @@ Insert the valid markdown table and click convert.
 
 ## Accepted mardown table format
 
-The table must always satisfy this format
+The table must always satisfy this format:
 | Key | Title | Description | Type | Required | Default value |
 | ------------------- | ------------------------- | --------------------------------------------------------------------------------- | ------- | -------- | ------------- |
 |Keyword for the field. Must not be too long and contain white spaces| Title for the field | Description of the field | any type in {string, number, integer, boolean, array} | any value in {true, false} | Default value for this field, can be left empty|
