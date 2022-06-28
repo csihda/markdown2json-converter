@@ -119,6 +119,7 @@ const JsonResult = ({ downloadDisabled, schema, convertDisabled }) => {
                         </TextField>
                         {selectedDisplay === "JSON Schema" ?
                             <TextField
+                                inputProps={{style: {fontSize: 12}}} 
                                 disabled
                                 id="json-schema-text"
                                 margin="normal"
